@@ -1,10 +1,11 @@
 package com.javaex.ex04;
 
-public class RectTriangle extends Shape implements Resizeable {
+public class Rectangle extends Shape implements Resizeable {
+
 	private double width;
 	private double height;
 
-	public RectTriangle(double width, double height) {
+	public Rectangle(double width, double height) {
 		super();
 		this.width = width;
 		this.height = height;
@@ -32,21 +33,19 @@ public class RectTriangle extends Shape implements Resizeable {
 	}
 
 	@Override
+	public void resize(double s) {
+		width = s * width;
+		height = s * height;
+	}
+
+	@Override
 	public double getArea() {
-		// TODO Auto-generated method stub
-		return 0;
+		return width * height;
 	}
 
 	@Override
 	public double getPerimeter() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void resize(double s) {
-		// TODO Auto-generated method stub
-
+		return (width + height) * 2;
 	}
 
 }
