@@ -12,34 +12,34 @@ public class GoodsApp {
 		Scanner sc = new Scanner(System.in);
 
 		ArrayList<Goods> gList = new ArrayList<Goods>();
+		int sum = 0;
 
 		System.out.println("상품을 입력해주세요(종료 q)");
 
-		boolean a = true;
+		while (true) {
+			String str = sc.nextLine();
 
-		while (a) {
-			String[] str = sc.nextLine().split(",");
-
-			// 배열을 리스트로 변경
-
-			for (int i = 0; i < str.length; i++) {
-				// 리스트출력
-				System.out.println(gList.toString());
-			}
 			if (str.equals("q")) {
 				System.out.println("[입력완료]");
-				System.out.println("=======================");
+				System.out.println("==============");
+				break;
+			}
+			String[] goods = str.split(",");
 
-				a = false;
-			} // if
+			String name = goods[0].trim();
+			int price = Integer.parseInt(goods[1].trim());
+			int count = Integer.parseInt(goods[2].trim());
 
-		} // while
-		for (
+			Goods newGoods = new Goods(name, price, count);
+			gList.add(newGoods);
 
-			int i = 0; i < gList.size(); i++) {
-			System.out.println(gList.get(i).toString());
+			sum += count;
+
 		}
-		// 총 상품의 갯수
+		for (Goods goods : gList) {
+			goods.showInfo();
+		}
+		System.out.println("모든 상품의 갯수는 " + sum + "개입니다.");
 
 	}// main()
 
